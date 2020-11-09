@@ -1,0 +1,5 @@
+Run SPRISS/scripts/download_ds.py: it downloads the HMP datasets and creates the GOSdatasets and MOBdatasets empty folders for the GOS, B73 and Mo17 datasets.
+
+At https://www.imicrobe.us/#/samples you need to download GS0XX.fa datasets, where XX is in {02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23,25,26,27,28,29,30,31,32,33,34,35,36,37,47,51} and put them in SAKEIMA/scripts/GOSdatasets. 
+
+At https://www.ncbi.nlm.nih.gov/sra/?term=SRP082260 you need to: download B73 Rep 1 and 2, uncompress them in fastq format and append of the two file to the other in a fila called "B73.fastq"; download Mo17 Rep 1 and 2, uncompress them in fastq format and append of the two file to the other in a fila called "Mo17.fastq"; put "B73.fastq" and "Mo17.fastq" datasets in SPRISS/scripts/MOBdatasets.
