@@ -1,0 +1,121 @@
+purpose "Count k-mers in fasta or fastq files"
+package "jellyfish count"
+
+option("mer-len", "m") {
+  description "Length of mer"
+  uint32; required }
+option("size", "s") {
+  description "Initial hash size"
+  uint64; suffix; required }
+option("threads", "t") {
+  description "Number of threads"
+  uint32; default "1" }
+option("sam") {
+  description "SAM/BAM/CRAM formatted input file"
+  multiple;
+  c_string; typestr "PATH" }
+option("F", "Files") {
+  description "Number files open simultaneously"
+  uint32; default "1" }
+option("g", "generator") {
+  description "File of commands generating fast[aq]"
+  c_string; typestr "path" }
+option("G", "Generators") {
+  description "Number of generators run simultaneously"
+  uint32; default "1" }
+option("S", "shell") {
+  description "Shell used to run generator commands ($SHELL or /bin/sh)"
+  c_string }
+option("output", "o") {
+  description "Output file"
+  c_string; default "mer_counts.jf" }
+option("counter-len", "c") {
+  description "Length bits of counting field"
+  uint32; default "7"; typestr "Length in bits" }
+option("out-counter-len") {
+  description "Length in bytes of counter field in output"
+  uint32; default "4"; typestr "Length in bytes" }
+option("C", "canonical") {
+  description "Count both strand, canonical representation"
+  flag; off }
+option("bc") {
+  description "Bloom counter to filter out singleton mers"
+  c_string; typestr "peath";  }
+option("bf-size") {
+  description "Use bloom filter to count high-frequency mers"
+  uint64; suffix; conflict "bc" }
+option("bf-fp") {
+  description "False positive rate of bloom filter"
+  double; default 0.01 }
+option("eprob","e") {
+  description "SAKEIMA (using epsilon-net method): Probability of inserting every k-mer position in the first pass"
+  double; default 1.0 }
+option("lambda") {
+  description "SAKEIMA (sampling method): Poisson constant for sampling k-mers"
+  double; default 1.0 }
+option("dbsize") {
+  description "Compute the size of the dataset"
+  flag; off }
+option("if") {
+  description "Count only k-mers in this files"
+  c_string; typestr "path"; multiple }
+option("Q", "min-qual-char") {
+  description "Any base with quality below this character is changed to N"
+  string }
+option("quality-start") {
+  description "ASCII for quality values"
+  int32; default 64; conflict "min-qual-char" }
+option("min-quality") {
+  description "Minimum quality. A base with lesser quality becomes an N"
+  int32; conflict "min-qual-char" }
+option("reprobes", "p") {
+  description "Maximum number of reprobes"
+  uint32; default "126" }
+option("text") {
+  description "Dump in text format"
+  off }
+option("disk") {
+  description "Disk operation. Do not do size doubling"
+  off }
+option("no-merge") {
+  description "Do not merge files intermediary files"
+  off; hidden }
+option("no-unlink") {
+  description "Do not unlink intermediary files after automatic merging"
+  off; hidden }
+# option("raw", "r") {
+#   description "Write raw database"
+#   flag; off }
+# option("both") {
+#   description "Write sorted list and raw database"
+#   flag; off; hidden }
+# option("quality-start") {
+#   description "Starting ASCII for quality values"
+#   uint32; default "64" }
+# option("min-quality") {
+#   description "Minimum quality. A base with lesser quality becomes an N"
+#   uint32; default "0" }
+option("lower-count", "L") {
+  description "Don't output k-mer with count < lower-count"
+  uint64 }
+option("upper-count", "U") {
+  description "Don't output k-mer with count > upper-count"
+  uint64 }
+# option("invalid-char") {
+#   description "How to treat invalid characters. The char is changed to a N."
+#   enum "warn", "ignore", "error" }
+# option("matrix") {
+#   description "Hash function binary matrix"
+#   string; typestr "Matrix file" }
+option("timing") {
+  description "Print timing information"
+  c_string; typestr "Timing file" }
+# option("stats") {
+#   description "Print stats"
+#   c_string; typestr "Stats file" }
+option("no-write") {
+  description "Don't write database"
+  flag; off; hidden }
+arg("file") {
+  description "Sequence file(s) in fasta or fastq format"
+  c_string; multiple; typestr "path" }

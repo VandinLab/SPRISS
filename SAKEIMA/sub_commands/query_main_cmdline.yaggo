@@ -1,0 +1,24 @@
+purpose "Query a Jellyfish database"
+package "jellyfish query"
+
+option("s", "sequence") {
+  description "Output counts for all mers in sequence"
+  c_string; typestr "path"; multiple }
+option("o", "output") {
+  description "Output file (stdout)"
+  c_string; typestr "path" }
+option("i", "interactive") {
+  description "Interactive, queries from stdin"
+  flag; off }
+option("l", "load") {
+  description "Force pre-loading of database file into memory"
+  off }
+option("L", "no-load") {
+  description "Disable pre-loading of database file into memory"
+  off }
+arg("file") {
+  description "Jellyfish database"
+  c_string; typestr "path" }
+arg("mers") {
+  description "mers to query"
+  c_string; multiple }

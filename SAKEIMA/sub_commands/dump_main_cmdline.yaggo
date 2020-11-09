@@ -1,0 +1,45 @@
+purpose "Dump k-mer counts"
+package "jellyfish dump"
+description "By default, dump in a fasta format where the header is the count and
+the sequence is the sequence of the k-mer. The column format is a 2
+column output: k-mer count."
+
+option("column", "c") {
+  description "Column format"
+  flag; off }
+option("bagsell") {
+  description "SAKEIMA: parameter ell for sampling"
+  uint64; default "1"}
+option("totalkmers") {
+  description "sum of counts from k-mers"
+  uint64; }
+option("tab", "t") {
+  description "Tab separator"
+  flag; off }
+option("lower-count", "L") {
+  description "Don't output k-mer with count < lower-count"
+  uint64; }
+option("upper-count", "U") {
+  description "Don't output k-mer with count > upper-count"
+  uint64 }
+option("output", "o") {
+  description "Output file"
+  c_string }
+option("dist") {
+  description "Binary file for distance computation"
+  c_string }
+option("distratio1") {
+  description "lambda if dist 1 is a sample"
+  double; default "1.0" }
+option("distratio2") {
+  description "lambda if dist 2 is a sample"
+  double; default "1.0" }
+option("theta") {
+  description "SAKEIMA: theta parameter for sampling"
+  double; default "0.0" }
+option("delta") {
+  description "SAKEIMA: theta parameter for sampling"
+  double; default "0.1" }
+arg("db") {
+  description "Jellyfish database"
+  c_string; typestr "path" }

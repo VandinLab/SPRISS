@@ -1,0 +1,21 @@
+purpose "Display information about a jellyfish file"
+package "jellyfish info"
+
+description "This command shows some information about how this jellyfish output
+file was created. Without any argument, it displays the command line
+used, when and where it was run."
+
+option("s", "skip") {
+  description "Skip header and dump remainder of file"
+  off }
+option("j", "json") {
+  description "Dump full header in JSON format"
+  off 
+  conflict "skip" }
+option("c", "cmd") {
+  description "Display only the command line"
+  off
+  conflict "skip", "json" }
+arg("file") {
+  description "Input file in jellyfish format"
+  c_string; typestr "path" }

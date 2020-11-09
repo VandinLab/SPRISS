@@ -1,0 +1,12 @@
+purpose "How to cite Jellyfish's paper"
+package "jellyfish cite"
+description "Citation of paper"
+
+option("bibtex", "b") {
+  description "Bibtex format"
+  flag; off
+}
+option("output", "o") {
+  description "Output file"
+  c_string
+}
