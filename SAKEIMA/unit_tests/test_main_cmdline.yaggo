@@ -1,0 +1,10 @@
+purpose "Unit tests"
+
+name "cmdline_parse"
+
+option("s", "seed") {
+  description "Random seed"
+  uint32 }
+option("b", "backtrace") {
+  description "Do not catch errors and show backtrace"
+  flag }
