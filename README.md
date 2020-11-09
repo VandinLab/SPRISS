@@ -2,7 +2,7 @@
 SamPling Reads algorIthm to eStimate frequent k-merS
 
 ### Data Preparation
-See "data_preparation.txt"
+See "data_preparation.txt".
 
 ### Installation
 In SPRISS's folder, run "make" to compile SPRISS. Since SPRISS is built on KMC, see [KMC's page](https://github.com/refresh-bio/KMC) for details on requirements and installation.
