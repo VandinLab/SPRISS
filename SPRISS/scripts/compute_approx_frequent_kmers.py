@@ -5,6 +5,8 @@ import subprocess
 import sys
 import numpy as np
 
+os.system("g++ -o create_sample create_sample.cpp")
+
 run = sys.argv[1]
 
 datasets = ['SRS024075','SRS024388','SRS011239','SRS075404','SRS043663','SRS062761']
@@ -22,13 +24,14 @@ of = open("approx_mining_time_run"+run+".txt",'w')
 for i,dataset in enumerate(datasets):
 	print(dataset)
 	of.write(dataset + " \n")
-	start = time.time()
+	#start = time.time()
 	dataset_path = dataset + "/" + dataset + ".fastq"
-	original_dataset = open(dataset_path,'r')
-	content = original_dataset.readlines()
-	original_dataset.close()
-	end = time.time()
-	loading_time = end - start
+	#old sample creation
+	#original_dataset = open(dataset_path,'r')
+	#content = original_dataset.readlines()
+	#original_dataset.close()
+	#end = time.time()
+	#loading_time = end - start
 	#print("Loading dataset time: " + str(loading_time))
 	#of.write("Loading dataset time: " + str(loading_time) + " \n")
 	for j,theta in enumerate(thetas):
@@ -44,19 +47,26 @@ for i,dataset in enumerate(datasets):
 		print("Sample_size= " + str(sample_size))
 		of.write("Sample_size= " + str(sample_size) + " \n")
 		sample_path =  dataset + "/" + dataset + "_kmc_sample.fastq"
-		sample = open(sample_path, 'w')
-		random_positions = np.random.randint(0, high=tot_reads[i], size=ml)
-		sample_size = 0
-		for pos in random_positions:
-			sample_size = sample_size + (len(content[pos*4+1])-1-k+1)
-			sample.write(content[pos*4])
-			sample.write(content[pos*4+1])
-			sample.write(content[pos*4+2])
-			sample.write(content[pos*4+3])
-		sample.close()
+		cmd = "./create_sample " + dataset_path + " " + sample_path + " " + str(int(tot_reads[i])) + " " + str(ml)
+		print(cmd)
+		os.system(cmd)
+		#old sample creation
+		#sample = open(sample_path, 'w')
+		#random_positions = np.random.randint(0, high=tot_reads[i], size=ml)
+		#sample_size = 0
+		#for pos in random_positions:
+		#	sample_size = sample_size + (len(content[pos*4+1])-1-k+1)
+		#	sample.write(content[pos*4])
+		#	sample.write(content[pos*4+1])
+		#	sample.write(content[pos*4+2])
+		#	sample.write(content[pos*4+3])
+		#sample.close()
 		end_sample = time.time()
-		print("Time_sample_creation= " + str(end_sample-start_sample+loading_time))
-		of.write("Time_sample_creation= " + str(end_sample-start_sample+loading_time) + " \n")
+		#cmd = "wc -l " + sample_path
+		#print(cmd)
+		#os.system(cmd)
+		print("Time_sample_creation= " + str(end_sample-start_sample))
+		of.write("Time_sample_creation= " + str(end_sample-start_sample) + " \n")
 		start_mining = time.time()
 		cmd = "./../bin/kmc -k"+str(k)+" -cs"+str(datasets_size[i])+" -m200 -ci1 -t1 " + sample_path + " " + output_file + " work_dir/"
 		print(cmd)
@@ -78,9 +88,12 @@ for i,dataset in enumerate(datasets):
 		#os.system(cmd)
 		#end_dump2 = time.time()
 		#dump2_time = end_dump2 - start_dump2
-		print("Counting_time= " + str(counting_time+dump1_time))
-		of.write("Counting_time= " + str(counting_time+dump1_time) + " \n")
-	content.clear()
+		#print("Counting_time= " + str(counting_time+dump1_time))
+		#of.write("Counting_time= " + str(counting_time+dump1_time) + " \n")
+		#FORSE DA TOGLIERE POI
+		print("Total_time= " + str(counting_time+dump1_time+(end_sample-start_sample)))
+		of.write("Total_time= " + str(counting_time+dump1_time+(end_sample-start_sample)) + " \n")
+	#content.clear()
 of.close()
 
 

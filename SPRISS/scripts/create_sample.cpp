@@ -36,10 +36,10 @@ int sampling(int n, int ml, string input_name, string output_name, int k){
     int n_reads_written = 0;
 
     while(n_current > 0 && ml_current > 0){
-        std::binomial_distribution<int> binomial_distr(ml_current, k/n_current);
+        std::binomial_distribution<int> binomial_distr(ml_current,std:: min(1.0,double(k)/double(n_current)));
         int c = binomial_distr(generator);
-        ml_current -= c;
-        n_current -= k;
+        //ml_current -= c;
+        //n_current -= k;
         std::map<int, int> s;
         for(int i = 0; i < c; i++){
             int random_index = rand()%k+1;
@@ -48,29 +48,31 @@ int sampling(int n, int ml, string input_name, string output_name, int k){
             else
                 s[random_index] += 1;
         }
-        for(int i = 1; i <= k ; i++){
+        for(int i = 1; i <= k && i <= n_current; i++){
             //load next read
             string seq_id;
             string read;
-            //string plus_line;
-            //string quality;
+            string plus_line;
+            string quality;
             getline(input, seq_id);
             getline(input, read);
-            //getline(input, plus_line);
-            //getline(input, quality);
+            getline(input, plus_line);
+            getline(input, quality);
 
             int r_i = 0;
             if(s.count(i)==1)
                 r_i = s[i];
 
-            for(int i = 0 ; i < r_i ; i++){
+            for(int j = 0 ; j < r_i ; j++){
                 output << seq_id + "\n";
                 output << read + "\n";
-                //output << plus_line + "\n";
-                //output << quality + "\n";
+                output << plus_line + "\n";
+                output << quality + "\n";
                 n_reads_written += 1;
             }
         }
+        ml_current -= c;
+        n_current -= k;
     }
     input.close();
     output.close();
