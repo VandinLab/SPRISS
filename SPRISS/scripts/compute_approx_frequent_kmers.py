@@ -90,7 +90,6 @@ for i,dataset in enumerate(datasets):
 		#dump2_time = end_dump2 - start_dump2
 		#print("Counting_time= " + str(counting_time+dump1_time))
 		#of.write("Counting_time= " + str(counting_time+dump1_time) + " \n")
-		#FORSE DA TOGLIERE POI
 		print("Total_time= " + str(counting_time+dump1_time+(end_sample-start_sample)))
 		of.write("Total_time= " + str(counting_time+dump1_time+(end_sample-start_sample)) + " \n")
 	#content.clear()
