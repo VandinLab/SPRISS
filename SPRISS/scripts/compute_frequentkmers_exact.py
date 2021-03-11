@@ -17,7 +17,7 @@ for i,dataset in enumerate(datasets):
 	print(dataset)
 	input_db =  dataset + "/" + dataset + ".fastq"
 	output_file = dataset +"/exact_kmc_all_kmers_db"
-	cmd = "./../bin/kmc -v -k"+str(k)+" -cs"+str(datasets_size[i])+" -m200 -ci1 -t1 " + input_db + " " + output_file + " work_dir_exact/"
+	cmd = "./../bin/kmc -v -k"+str(k)+" -cs"+str(datasets_size[i])+" -m200 -ci1 -t16 " + input_db + " " + output_file + " work_dir_exact/"
 	print(cmd)
 	os.system(cmd)
 	kmer_counts_file = dataset +"/exact_kmc_all_kmers.txt"
@@ -52,6 +52,7 @@ for i,dataset in enumerate(datasets):
 		dumping_time = end_kmcdump - start_kmcdump
 		print("Counting_time= " + str(counting_time+dumping_time))
 		results.write("Counting_time= " + str(counting_time+dumping_time) + " \n")
+		
 		start_kmcdump_discr = time.time()
 		lowercount = int(math.ceil((theta/2.0)*datasets_size[i]))
 		kmer_counts_file_discr = dataset +"/exact_kmc_freqkmers_"+ str(theta*(10**8)) + "_div2.txt"
@@ -62,6 +63,7 @@ for i,dataset in enumerate(datasets):
 		dumping_time_discr = end_kmcdump_discr - start_kmcdump_discr
 		print("Counting_time_discr= " + str(2*counting_time+dumping_time+dumping_time_discr))
 		results_discriminative.write("Counting_time_discr= " + str(2*counting_time+dumping_time+dumping_time_discr) + " \n")
+		
 results.close()
 results_discriminative.close()
 

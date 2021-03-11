@@ -117,4 +117,4 @@ for i,dataset in enumerate(datasets):
 		std = np.std(fnrate_list)
 		quality_file.write("FalseNegative_rate= " + str(mean) + " " + str(std) + " \n")
 quality_file.close()
-		
+

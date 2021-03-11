@@ -2,6 +2,9 @@ from matplotlib import pyplot as plt
 import scipy.special
 import random
 from matplotlib.patches import Patch
+import os
+
+os.system("mkdir figures")
 
 SMALL_SIZE = 17
 MEDIUM_SIZE = 19

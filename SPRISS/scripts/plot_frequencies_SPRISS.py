@@ -85,6 +85,6 @@ print("done")
 #ax1.set_position([box.x0, box.y0, box.width * 0.95, box.height])
 plt.legend(loc='best',numpoints=1, prop={'size': 16})
 #ax1.legend(loc='best', bbox_to_anchor=(1, 0.5))
-plt.savefig('frequencies_bounds.png',dpi=300,bbox_inches='tight')
+plt.savefig('figures/frequencies_bounds.png',dpi=300,bbox_inches='tight')
 #plt.savefig('frequencies_bounds.pdf',dpi=50)
 

@@ -13,7 +13,7 @@ output = open("discriminative_kmers/approx_discriminative_kmers_"+dataset1_name+
 k=31
 print("Computing approx discriminative k-mers " + dataset1_name + "-" + dataset2_name + " ...")
 dataset1_path = dataset1_name+"/"+dataset1_name + "_kmc_" + str(k) + "-mers_" + str(t) + "_ordered.txt"
-dataset2_path = dataset2_name + "/" + dataset2_name + "_kmc_" + str(k) + "-mers_" + str(t) + "_all_ordered.txt"
+dataset2_path = dataset2_name + "/" + dataset2_name + "_kmc_" + str(k) + "-mers_" + str(t) + "_ordered.txt" #_all_ordered
 output.write(dataset1_name + " + \n")
 output.write(dataset2_name + " - \n")
 dataset1 = open(dataset1_path,'r')

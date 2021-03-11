@@ -19,8 +19,8 @@ for t,theta in enumerate(thetas):
 	for dataset in datasets:
 		output_file = dataset+"/"+dataset + "_kmc_" + str(k) + "-mers_" + str(t)
 		os.system("sort " + output_file + ".txt > " + output_file + "_ordered.txt")
-		output_file = dataset + "/" + dataset + "_kmc_" + str(k) + "-mers_" + str(t) + "_all"
-		os.system("sort " + output_file + ".txt > " + output_file + "_ordered.txt")
+		#output_file = dataset + "/" + dataset + "_kmc_" + str(k) + "-mers_" + str(t) + "_all"
+		#os.system("sort " + output_file + ".txt > " + output_file + "_ordered.txt")
 	for i in range(len(datasets)):
 		for j in range(len(datasets)):
 			if(i==j):
