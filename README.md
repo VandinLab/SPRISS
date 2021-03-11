@@ -21,6 +21,7 @@ python3 SPRISS/scripts/run_exact_results.py
 python3 SPRISS/scripts/run_SPRISS_results.py
 python3 SAKEIMA/scripts/run_SAKEIMA_results.py
 python3 SPRISS/scripts/plot_figures.py
+python3 SPRISS/scripts/plot_frequencies_SPRISS.py
 python3 SAKEIMA/scripts/run_GOS_results.py
 python3 SAKEIMA/scripts/plot_GOS_figures.py
 ```
