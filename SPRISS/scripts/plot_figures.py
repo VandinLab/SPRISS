@@ -25,23 +25,18 @@ for i in range(n_datasets):
     for j in range(i+1,n_datasets,1):
         pair_datasets_hmp.append(datasets[i]+"-"+datasets[j])
 
-
-#approx_file_reads = open("xxx.txt", 'r')
 approx_file_reads_kmc = open("SPRISS_time.txt", 'r')
 approx_file_sake = open("../../SAKEIMA/scripts/SAKEIMA_time.txt", 'r')
-#exact_file = open("exact_mining_time.txt", 'r')
 exact_file_kmc = open("time_frequentkmers_kmc.txt", 'r')
 
 colors = ['red','orange','black','green','blue','magenta']
-#times_per_thetas_exact = [0,0,0,0]
 times_per_thetas_exact_kmc = [0,0,0,0]
 times_per_thetas_exact_discriminative = [0,0,0,0]
-#times_per_thetas_reads = [0,0,0,0]
 times_per_thetas_reads_kmc = [0,0,0,0]
 times_per_thetas_reads_kmc_discriminative = [0,0,0,0]
 times_per_thetas_sake = [0,0,0,0]
 n_datasets = 6
-#plt.figure(figsize=(10, 8))
+
 plt.xlim(2e-8, 1.2e-7)
 plt.xscale("log")
 thetas_plot = []
@@ -124,7 +119,7 @@ plt.legend(loc='best', ncol=2, prop={'size': 12.5})
 #plt.show()
 
 #plt.tight_layout()
-plt.savefig('running_time.pdf',dpi=300, bbox_inches='tight')
+plt.savefig('figures/running_time.pdf',dpi=300, bbox_inches='tight')
 plt.clf()
 approx_file_sake.close()
 approx_file_reads_kmc.close()
@@ -217,7 +212,7 @@ for i in range(4): #number of thetas
     ax = plt.axes()
     ax.grid(b=True, which='major', color='0.9', axis='y', linestyle='-')
     ax.grid(b=True, which='major', color='0.9', axis='x', linestyle='-')
-    plt.savefig("theta"+str(i+1)+".pdf",dpi=300, bbox_inches='tight')
+    plt.savefig("figures/theta"+str(i+1)+".pdf",dpi=300, bbox_inches='tight')
     plt.close()
     plt.clf()
 
@@ -258,7 +253,7 @@ ax.set_xticks(thetas_plot)
 ax.set_xticklabels(thetas_strings)
 ax.set_xticklabels([],minor=True)
 #plt.show()
-plt.savefig('all_running_time.pdf',dpi=300, bbox_inches='tight')
+plt.savefig('figures/all_running_time.pdf',dpi=300, bbox_inches='tight')
 plt.close()
 plt.clf()
 
@@ -308,7 +303,7 @@ ax.set_xticklabels([],minor=True)
 plt.ylabel("Fractions")
 plt.legend(loc='best',prop={'size': 12}, ncol=2)
 #plt.show()
-plt.savefig('sample_size.pdf',dpi=300, bbox_inches='tight')
+plt.savefig('figures/sample_size.pdf',dpi=300, bbox_inches='tight')
 plt.clf()
 sample_sizes_file.close()
 
@@ -366,7 +361,7 @@ for i in range(3):
         ax.set_xticklabels(thetas_strings)
         ax.set_xticklabels([],minor=True)
         plt.legend(loc='best', prop={'size': 12}, ncol=2)
-        plt.savefig('avg_dev.pdf',dpi=300, bbox_inches='tight')
+        plt.savefig('figures/avg_dev.pdf',dpi=300, bbox_inches='tight')
     elif(i==0):
         plt.xlim(2e-8, 1.2e-7)
         plt.title("Maximum deviation")
@@ -377,7 +372,7 @@ for i in range(3):
         ax.set_xticks(thetas_plot)
         ax.set_xticklabels(thetas_strings)
         ax.set_xticklabels([],minor=True)
-        plt.savefig('max_dev.pdf',dpi=300, bbox_inches='tight')
+        plt.savefig('figures/max_dev.pdf',dpi=300, bbox_inches='tight')
     else:
         plt.xlim(2e-8, 1.2e-7)
         plt.title("False negatives rate")
@@ -389,7 +384,7 @@ for i in range(3):
         ax.set_xticklabels(thetas_strings)
         ax.set_xticklabels([],minor=True)
         plt.legend(loc='best', prop={'size': 10}, ncol=2)
-        plt.savefig('fn_rate.pdf',dpi=300, bbox_inches='tight')
+        plt.savefig('figures/fn_rate.pdf',dpi=300, bbox_inches='tight')
     #plt.show()
     plt.clf()
 
@@ -439,7 +434,7 @@ for i in range(n_datasets):
     ax.set_xticklabels(thetas_strings)
     ax.set_xticklabels([],minor=True)
     #plt.show()
-    plt.savefig("fn_rate_discriminative_d"+str(i+1)+".pdf",dpi=300,bbox_inches='tight')
+    plt.savefig("figures/fn_rate_discriminative_d"+str(i+1)+".pdf",dpi=300,bbox_inches='tight')
     plt.clf()
 rates_file_discr.close()
 
@@ -489,7 +484,7 @@ ax.set_xticklabels(thetas_strings)
 ax.set_xticklabels([],minor=True)
 plt.legend(loc='center right',prop={'size': 13})
 #plt.show()
-plt.savefig("all_running_time_discriminative.pdf",dpi=300,bbox_inches='tight')
+plt.savefig("figures/all_running_time_discriminative.pdf",dpi=300,bbox_inches='tight')
 plt.clf()
 
 '''
