@@ -41,14 +41,15 @@ int sampling(int n, int ml, string input_name, string output_name, int k){
         //ml_current -= c;
         //n_current -= k;
         std::map<int, int> s;
+	int k_adjusted = int(min(k,n_current));
         for(int i = 0; i < c; i++){
-            int random_index = rand()%k+1;
+            int random_index = rand()%k_adjusted+1;
             if(s.count(random_index)==0)
                 s[random_index] = 1;
             else
                 s[random_index] += 1;
         }
-        for(int i = 1; i <= k && i <= n_current; i++){
+        for(int i = 1; i <= k_adjusted; i++){
             //load next read
             string seq_id;
             string read;
@@ -72,7 +73,7 @@ int sampling(int n, int ml, string input_name, string output_name, int k){
             }
         }
         ml_current -= c;
-        n_current -= k;
+        n_current -= k_adjusted;
     }
     input.close();
     output.close();
