@@ -5,6 +5,7 @@
 #include <random>
 #include <map>
 #include <time.h>
+#include <stdlib.h>
 using namespace std;
 
 int sampling(int n, int ml, string input_name, string output_name, int k);
@@ -34,6 +35,7 @@ int sampling(int n, int ml, string input_name, string output_name, int k){
     fstream output;
     output.open(output_name,ios::out);
     int n_reads_written = 0;
+    srand(time(NULL));
 
     while(n_current > 0 && ml_current > 0){
         std::binomial_distribution<int> binomial_distr(ml_current,std:: min(1.0,double(k)/double(n_current)));
