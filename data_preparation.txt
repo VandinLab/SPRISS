@@ -7,8 +7,8 @@ At https://www.ncbi.nlm.nih.gov/sra/?term=SRP082260 you need to: download B73 Re
 
 
 ***SNP genotyping application of SPRISS
-Run SPRISS/scripts/genotyping_application/get_data/get_data.py: it downloads the dataset of coverage 75x used for the SNP genotyping application of SPRISS from https://github.com/genome-in-a-bottle/giab_data_indexes --> NA12878:HG001 https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/NA12878/
-Download hg19.fa from http://cb.csail.mit.edu/cb/lava/data/hg19.fa.gz and put it in SPRISS/scripts/genotyping_application/
-Download NA12878.vcf.gz from https://drive.google.com/file/d/1Fun0X2x8_7uDqzGNiT4CfXQVU6uKyPLV/view?usp=sharing and put it in SPRISS/scripts/genotyping_application/
-Download hg19Common.vcf from https://drive.google.com/file/d/1U5H8GW83HWML4e3o8oO0rV9KVBNzicRE/view?usp=sharing and put it in SPRISS/scripts/genotyping_application/
-Download ConfidentRegions.bed.gz from https://drive.google.com/file/d/1EPmVLWh4sagoaan1vueEI_0jiWELOJv9/view?usp=sharing and put it in SPRISS/scripts/genotyping_application/
+Run SPRISS/genotyping_application/get_data/get_data.py: it downloads the dataset of coverage 75x used for the SNP genotyping application of SPRISS from https://github.com/genome-in-a-bottle/giab_data_indexes --> NA12878:HG001 https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/NA12878/
+Download hg19.fa from http://cb.csail.mit.edu/cb/lava/data/hg19.fa.gz and put it in SPRISS/genotyping_application/
+Download NA12878.vcf.gz from https://drive.google.com/file/d/1Fun0X2x8_7uDqzGNiT4CfXQVU6uKyPLV/view?usp=sharing and put it in SPRISS/genotyping_application/
+Download hg19Common.vcf from https://drive.google.com/file/d/1U5H8GW83HWML4e3o8oO0rV9KVBNzicRE/view?usp=sharing and put it in SPRISS/genotyping_application/
+Download ConfidentRegions.bed.gz from https://drive.google.com/file/d/1EPmVLWh4sagoaan1vueEI_0jiWELOJv9/view?usp=sharing and put it in SPRISS/genotyping_application/

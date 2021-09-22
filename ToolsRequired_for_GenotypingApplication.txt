@@ -1,0 +1,6 @@
+Install the following tools in the same folder where this file (ToolsRequired_for_GenotypingApplication.txt) is placed:
+- BWA: https://github.com/lh3/bwa
+- SAMtools and BCFtools: http://www.htslib.org/download/ (Note that we use bgzip placed in folder htslib of samtools's folder) 
+- bedtools: https://bedtools.readthedocs.io/en/latest/content/installation.html
+- rtg-tools: https://github.com/RealTimeGenomics/rtg-tools
+- Vargeno: https://github.com/medvedevgroup/vargeno
