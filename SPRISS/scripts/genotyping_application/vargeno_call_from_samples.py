@@ -1,6 +1,7 @@
 import os
 import time
 
+os.system("g++ -o create_sample create_sample.cpp")
 sample_sizes = [155221129,194026412,388052824,776105649,1164158473]
 rt_file = open("running_times_vargeno.txt",'w')
 
