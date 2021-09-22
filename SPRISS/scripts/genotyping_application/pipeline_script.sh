@@ -38,11 +38,12 @@ DIREVAL=$WORKING_DIR/results
 RAWVCF=$WORKING_DIR/call_raw.vcf.gz
 VCF=$WORKING_DIR/call_filt.vcf.gz
 
-##$bwa index $HG19REF
-##$samtools faidx $HG19REF
-##$rtg format -o $HG19SDFREF $HG19REF
-##$rtg index -f vcf $VCFREF
-##$rtg index -f bed $VCFBED
+#necessary indexes and sdf files!
+$bwa index $HG19REF
+$samtools faidx $HG19REF
+$rtg format -o $HG19SDFREF $HG19REF
+$rtg index -f vcf $VCFREF
+$rtg index -f bed $VCFBED
 
 ################## SCRIPT #########################
 >&2 date
@@ -109,4 +110,3 @@ $rtg rocplot $DIREVAL/weighted_roc.tsv.gz --svg $DIREVAL/roc.svg
 ##rm -r $TEMP
 
 >&2 date && echo "Fine script pipeline."
-
