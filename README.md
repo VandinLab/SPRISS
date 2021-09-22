@@ -24,4 +24,9 @@ python3 SPRISS/scripts/plot_figures.py
 python3 SPRISS/scripts/plot_frequencies_SPRISS.py
 python3 SAKEIMA/scripts/run_GOS_results.py
 python3 SAKEIMA/scripts/plot_GOS_figures.py
+python3 SPRISS/genotyping_application/pipeline_call_from_75x.py
+python3 SPRISS/genotyping_application/pipeline_call_from_samples.py
+python3 SPRISS/genotyping_application/vargeno_call_from_75x.py
+python3 SPRISS/genotyping_application/vargeno_call_from_samples.py
+python3 SPRISS/genotyping_application/plot_figures_genotyping.py
 ```
