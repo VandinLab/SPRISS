@@ -19,7 +19,7 @@ In folder SPRISS/scripts, run "spriss.py" by specifying the FASTQ dataset, and t
 ```
 python3 SPRISS/scripts/spriss.py NameDataset.fastq k delta theta
 ```
-SPRISS creates the sample "NameDataset_sample.fastq" and outputs the frequent k-mers estimates in "NameDataset_frequent_k-mers_estimates.txt" in the same folder of the dataset "NameDataset.fastq". 
+SPRISS creates the sample "NameDataset_sample.fastq" and outputs the frequent k-mers estimates in "NameDataset_frequent_k-mers_estimates.txt" in the same folder where the dataset "NameDataset.fastq" is located.
 
 As an example:
 ```
