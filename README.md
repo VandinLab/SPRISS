@@ -23,7 +23,7 @@ SPRISS creates the sample "NameDataset_sample.fastq" and outputs the frequent k-
 
 As an example:
 ```
-python3 spriss.py SRS024075/SRS024075.fastq 31 0.1 0.0000001
+python3 SPRISS/scripts/spriss.py SRS024075/SRS024075.fastq 31 0.1 0.0000001
 ```
 creates the sample "SRS024075_sample.fastq" and outputs the frequent k-mers estimates in "SRS024075_frequent_31-mers_estimates.txt" in folder "SRS024075/".
 
