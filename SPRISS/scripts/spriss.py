@@ -58,7 +58,7 @@ sample_rate = float(ml)/float(tot_reads)
 print("sample_rate= " + str(sample_rate))
 of.write("sample_rate= " + str(sample_rate) + " \n")
 if(sample_rate >= 1.0):
-	sys.exit("Sample size greater than the dataset size. The dataset could be too small (so the sampling strategy is not useful), or try to change values of k end/or theta and/or epsilon and/or l")
+	sys.exit("ALERT! SPRISS stopped. Sample size greater than the dataset size. The dataset could be too small (so the sampling strategy is not useful), or try to change values of k end/or theta and/or epsilon and/or l")
 sample_path =  dataset + "_sample.fastq"
 cmd = "./create_sample " + dataset_ext + " " + sample_path + " " + str(int(tot_reads)) + " " + str(ml)
 print(cmd)
@@ -86,4 +86,3 @@ dump1_time = end_dump1 - start_dump1
 print("Total_time= " + str(counting_time+dump1_time+(end_sample-start_sample)))
 of.write("Total_time= " + str(counting_time+dump1_time+(end_sample-start_sample)) + " \n")
 of.close()
-
