@@ -14,6 +14,9 @@ make -j 4
 ```
 to compile SAKEIMA. See [SAKEIMA's page](https://github.com/VandinLab/SAKEIMA) for details on requirements and installation. 
 
+### Usage of SPRISS
+In folder SPRISS/scripts, run "spriss.py" by specifying the FASTQ dataset, and the values of $k$, $\delta$, and $\theta$. 
+
 ### Reproducing Experimental Evaluations
 Run:
 ```
