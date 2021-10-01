@@ -12,8 +12,8 @@ dataset = dataset_ext.split(".")[0]
 k = int(sys.argv[2])
 delta = float(sys.argv[3])
 theta = float(sys.argv[4])
-print(dataset_ext + " k=" + str(k) + " delta=" + str(delta) + " theta=" + str(theta))
-
+epsilon = float(sys.argv[5])
+l = int(sys.argv[6])
 of = open("running_times.txt",'w')
 
 #statistics of the dataset
@@ -40,6 +40,12 @@ print(str(avg_read_length) + " avg_read_length")
 print(str(max_read_length) + " max_read_length")
 df.close()
 
+if(epsilon < 0):
+	epsilon = theta - 2.0/datasets_size
+if(l < 0):
+	l = math.floor((0.9/theta)/(avg_read_length-k+1))
+print(dataset_ext + " k=" + str(k) + " delta=" + str(delta) + " theta=" + str(theta) + " epsilon=" + str(epsilon) + " l=" + str(l))
+
 #sampling and frequent k-mers estimates
 print("Computing sampling and frequent k-mers estimates ... ")
 print(dataset)
@@ -50,7 +56,6 @@ of.write(str(theta) + " \n")
 #sampling
 start_sample = time.time()
 output_file = dataset + "_kmc_" + str(k) + "-mers_db"
-epsilon = theta - 2.0/datasets_size
 l = math.floor((0.9/theta)/(avg_read_length-k+1))
 m = math.ceil((2/((epsilon*l*(avg_read_length-k+1))**2)) * ( math.floor(math.log2(min(2*l*(max_read_length-k+1) ,4**31))) + math.log(2.0/delta)  ) )
 ml = int(m*l)
@@ -58,7 +63,8 @@ sample_rate = float(ml)/float(tot_reads)
 print("sample_rate= " + str(sample_rate))
 of.write("sample_rate= " + str(sample_rate) + " \n")
 if(sample_rate >= 1.0):
-	sys.exit("ALERT! SPRISS stopped. Sample size greater than the dataset size. The dataset could be too small (so the sampling strategy is not useful), or try to change values of k end/or theta and/or epsilon and/or l")
+	sys.exit("Sample size greater than the dataset size. The dataset could be too small (so the sampling strategy is not useful), or try to change values of k end/or theta and/or epsilon and/or l")
+
 sample_path =  dataset + "_sample.fastq"
 cmd = "./create_sample " + dataset_ext + " " + sample_path + " " + str(int(tot_reads)) + " " + str(ml)
 print(cmd)
@@ -86,3 +92,4 @@ dump1_time = end_dump1 - start_dump1
 print("Total_time= " + str(counting_time+dump1_time+(end_sample-start_sample)))
 of.write("Total_time= " + str(counting_time+dump1_time+(end_sample-start_sample)) + " \n")
 of.close()
+
