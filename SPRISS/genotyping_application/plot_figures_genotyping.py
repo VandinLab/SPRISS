@@ -85,7 +85,7 @@ colors = ['red','orange','black','green','blue','magenta']
 
 #-------------------RUNNING TIMES VARGENO
 rt_file = open("avg_running_times_vargeno.txt")
-plt.title("Running time - Vargeno")#, fontsize=22)
+plt.title("Running time - VarGeno")#, fontsize=22)
 plt.xlabel("Sample rate")#, fontsize=22)
 plt.ylabel("Running time (sec)")#, fontsize=22)
 sample_rate = [0.1,0.125,0.25,0.5,0.75]
@@ -127,7 +127,7 @@ rt_file.close()
 
 #---------------RUNNING TIMES PIPELINE
 rt_file = open("avg_running_times_pipeline.txt")
-plt.title("Running time - Pipeline Standard")#, fontsize=22)
+plt.title("Running time - Standard Pipeline")#, fontsize=22)
 plt.xlabel("Sample rate")#, fontsize=22)
 plt.ylabel("Running time (sec)")#, fontsize=22)
 sample_rate = [0.1,0.125,0.25,0.5,0.75]
@@ -221,7 +221,7 @@ for i in range(len(sample_rate)):
     sampling_fm.append(avg_sampling_fm/runs)
 
 ######SENSITIVITY
-plt.title("Sensitivity - Vargeno")#, fontsize=22)
+plt.title("Sensitivity - VarGeno")#, fontsize=22)
 plt.xlabel("Sample rate")#, fontsize=22)
 plt.ylabel("Sensitivity")#, fontsize=22)
 
@@ -245,7 +245,7 @@ plt.savefig('figures/sensitivity_vargeno.pdf',dpi=300, bbox_inches='tight')
 plt.clf()
 
 ######PRECISION
-plt.title("Precision - Vargeno")#, fontsize=22)
+plt.title("Precision - VarGeno")#, fontsize=22)
 plt.xlabel("Sample rate")#, fontsize=22)
 plt.ylabel("Precision")#, fontsize=22)
 
@@ -268,7 +268,7 @@ plt.savefig('figures/precision_vargeno.pdf',dpi=300, bbox_inches='tight')
 plt.clf()
 
 ######FM
-plt.title("F-measure - Vargeno")#, fontsize=22)
+plt.title("F-measure - VarGeno")#, fontsize=22)
 plt.xlabel("Sample rate")#, fontsize=22)
 plt.ylabel("F-Measure")#, fontsize=22)
 
@@ -344,7 +344,7 @@ for i in range(len(sample_rate)):
     sampling_fm.append(avg_sampling_fm/runs)
 
 #####SENSITIVITY
-plt.title("Sensitivity - Pipeline Standard")#, fontsize=22)
+plt.title("Sensitivity - Standard Pipeline")#, fontsize=22)
 plt.xlabel("Sample rate")#, fontsize=22)
 plt.ylabel("Sensitivity")#, fontsize=22)
 
@@ -368,7 +368,7 @@ plt.savefig('figures/sensitivity_pipeline.pdf',dpi=300, bbox_inches='tight')
 plt.clf()
 
 #####PRECISION
-plt.title("Precision - Pipeline Standard")#, fontsize=22)
+plt.title("Precision - Standard Pipeline")#, fontsize=22)
 plt.xlabel("Sample rate")#, fontsize=22)
 plt.ylabel("Precision")#, fontsize=22)
 
@@ -391,7 +391,7 @@ plt.savefig('figures/precision_pipeline.pdf',dpi=300, bbox_inches='tight')
 plt.clf()
 
 ######FM
-plt.title("F-measure - Pipeline Standard")#, fontsize=22)
+plt.title("F-measure - Standard Pipeline")#, fontsize=22)
 plt.xlabel("Sample rate")#, fontsize=22)
 plt.ylabel("F-measure")#, fontsize=22)
 
