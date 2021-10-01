@@ -15,7 +15,7 @@ make -j 4
 to compile SAKEIMA. See [SAKEIMA's page](https://github.com/VandinLab/SAKEIMA) for details on requirements and installation. 
 
 ### Usage of SPRISS
-In folder SPRISS/scripts, run "spriss.py" by specifying the FASTQ dataset, and the values of k (>0), delta (in (0,1)), theta (in (0,1)), epsilon (in (0,theta)), and l (>0) as follows:
+In folder SPRISS/scripts, run "spriss.py" by specifying the FASTQ dataset, and the values of k [>0], delta (in (0,1)), theta (in (0,1)), epsilon (in (0,theta)), and l (>0) as follows:
 ```
 python3 SPRISS/scripts/spriss.py NameDataset.fastq k delta theta epsilon l
 ```
