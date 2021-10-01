@@ -15,15 +15,16 @@ make -j 4
 to compile SAKEIMA. See [SAKEIMA's page](https://github.com/VandinLab/SAKEIMA) for details on requirements and installation. 
 
 ### Usage of SPRISS
-In folder SPRISS/scripts, run "spriss.py" by specifying the FASTQ dataset, and the values of k, delta, and theta, as follows:
+In folder SPRISS/scripts, run "spriss.py" by specifying the FASTQ dataset, and the values of *k* [>0], *delta* [in (0,1)], *theta* [in (0,1)], *epsilon* [in (0,*theta*)], and *l* [>0] as follows:
 ```
-python3 SPRISS/scripts/spriss.py NameDataset.fastq k delta theta
+python3 SPRISS/scripts/spriss.py NameDataset.fastq k delta theta epsilon l
 ```
+If you set *epsilon* and *l* to -1, default values are used: *epsilon=theta-2/dataset_size* and *l=math.floor(0.9/(theta * avg_kmers_in_read))*, where *avg_kmers_in_read* is the average number of k-mers in a read of the dataset.
 SPRISS creates the sample "NameDataset_sample.fastq" and outputs the frequent k-mers estimates in "NameDataset_frequent_k-mers_estimates.txt" in the same folder where the dataset "NameDataset.fastq" is located.
 
 As an example:
 ```
-python3 SPRISS/scripts/spriss.py SRS024075/SRS024075.fastq 31 0.1 0.0000001
+python3 SPRISS/scripts/spriss.py SRS024075/SRS024075.fastq 31 0.1 0.0000001 0.000000095 100000
 ```
 creates the sample "SRS024075_sample.fastq" and outputs the frequent k-mers estimates in "SRS024075_frequent_31-mers_estimates.txt" in folder "SRS024075/".
 
