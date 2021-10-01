@@ -106,8 +106,8 @@ for i in range(len(sample_rate)):
     sampling_times.append(sampling_time)
 
 sample_rate = [0.125,0.25,0.5,0.75]
-plt.plot(sample_rate,exact_times, color = colors[4], linestyle='--', label = "Vargeno")
-plt.plot(sample_rate,sampling_times, marker = "x", linestyle='-', color = colors[0] , ms=10, label = "SPRISS+Vargeno")
+plt.plot(sample_rate,exact_times, color = colors[4], linestyle='--', label = "VarGeno")
+plt.plot(sample_rate,sampling_times, marker = "x", linestyle='-', color = colors[0] , ms=10, label = "SPRISS+VarGeno")
 
 ax = plt.axes()
 ax.grid(b=True, which='major', color='0.9', axis='y', linestyle='-')
@@ -226,8 +226,8 @@ plt.xlabel("Sample rate")#, fontsize=22)
 plt.ylabel("Sensitivity")#, fontsize=22)
 
 sample_rate = [0.125,0.25,0.5,0.75]
-plt.plot(sample_rate,exact_sens, color = colors[4], linestyle='--', label = "Vargeno")
-plt.plot(sample_rate,sampling_sens, marker = "x", linestyle='-', color = colors[0] , ms=10, label = "SPRISS+Vargeno")
+plt.plot(sample_rate,exact_sens, color = colors[4], linestyle='--', label = "VarGeno")
+plt.plot(sample_rate,sampling_sens, marker = "x", linestyle='-', color = colors[0] , ms=10, label = "SPRISS+VarGeno")
 
 ax = plt.axes()
 ax.grid(b=True, which='major', color='0.9', axis='y', linestyle='-')
@@ -249,8 +249,8 @@ plt.title("Precision - VarGeno")#, fontsize=22)
 plt.xlabel("Sample rate")#, fontsize=22)
 plt.ylabel("Precision")#, fontsize=22)
 
-plt.plot(sample_rate,exact_prec, color = colors[4], linestyle='--', label = "Vargeno")
-plt.plot(sample_rate,sampling_prec, marker = "x", linestyle='-', color = colors[0] , ms=10, label = "SPRISS+Vargeno")
+plt.plot(sample_rate,exact_prec, color = colors[4], linestyle='--', label = "VarGeno")
+plt.plot(sample_rate,sampling_prec, marker = "x", linestyle='-', color = colors[0] , ms=10, label = "SPRISS+VarGeno")
 
 ax = plt.axes()
 ax.grid(b=True, which='major', color='0.9', axis='y', linestyle='-')
@@ -272,8 +272,8 @@ plt.title("F-measure - VarGeno")#, fontsize=22)
 plt.xlabel("Sample rate")#, fontsize=22)
 plt.ylabel("F-Measure")#, fontsize=22)
 
-plt.plot(sample_rate,exact_fm, color = colors[4], linestyle='--', label = "Vargeno")
-plt.plot(sample_rate,sampling_fm, marker = "x", linestyle='-', color = colors[0] , ms=10, label = "SPRISS+Vargeno")
+plt.plot(sample_rate,exact_fm, color = colors[4], linestyle='--', label = "VarGeno")
+plt.plot(sample_rate,sampling_fm, marker = "x", linestyle='-', color = colors[0] , ms=10, label = "SPRISS+VarGeno")
 
 ax = plt.axes()
 ax.grid(b=True, which='major', color='0.9', axis='y', linestyle='-')
