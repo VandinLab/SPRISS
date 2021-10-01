@@ -20,7 +20,7 @@ In folder SPRISS/scripts, run "spriss.py" by specifying the FASTQ dataset, and t
 python3 SPRISS/scripts/spriss.py NameDataset.fastq k delta theta epsilon l
 ```
 If you set *epsilon* and *l* to -1, default values are used: *epsilon=theta-2/dataset_size* and *l=math.floor(0.9/(theta * avg_kmers_in_read))*, where *avg_kmers_in_read* is the average number of k-mers in a read of the dataset.
-SPRISS creates the sample "NameDataset_sample.fastq" and outputs the frequent k-mers estimates in "NameDataset_frequent_k-mers_estimates.txt" in the same folder where the dataset "NameDataset.fastq" is located.
+SPRISS creates the sample "NameDataset_sample.fastq" and outputs the frequent k-mers estimates in "NameDataset_frequent_k-mers_estimates.txt" in the same folder where the dataset "NameDataset.fastq" is located. The format of the output file "NameDataset_frequent_k-mers_estimates.txt" is the following: *k-mer* *count* *unbiased_frequency*, where *count* is the number of occurrences of the k-mer in the sample analyzed, and *frequency* is the frequency of the k-mer in the sample (it is the unbiased version of the frequency, to be consistent with the terminology used in the paper). 
 
 As an example:
 ```
